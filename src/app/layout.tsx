@@ -1,5 +1,6 @@
 import type { Metadata } from "next";
 import './globals.css'
+import { Aside } from "@/components/Aside";
 
 export const metadata: Metadata = {
   title: "Code Link",
@@ -12,8 +13,13 @@ export default function RootLayout({
   children: React.ReactNode;
 }>) {
   return (
-    <html lang="pt-br">
-      <body>{children}</body>
+    <html lang="pt-br" >
+      <body>
+        <div className="app-container">
+          <Aside />
+          {children}
+        </div>
+      </body>
     </html>
   );
 }

@@ -1,0 +1,21 @@
+.Aside_desktop {
+  width: 177px;
+  align-self: stretch;
+  flex-grow: 0;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+  align-items: center;
+  gap: 70px;
+  padding: 40px 16px;
+  border-radius: 8px;
+  background-color: #171d1f;
+}
+
+
+img.Logo {
+  width: 150px;
+  height: 200px;
+  flex-grow: 0;
+  object-fit: contain;
+}
