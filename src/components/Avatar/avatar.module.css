@@ -1,0 +1,33 @@
+.avatar_container {
+  width: 85px;
+  align-self: stretch;
+  flex-grow: 0;
+  display: flex;
+  flex-direction: row;
+  justify-content: flex-end;
+  align-items: center;
+  gap: 8px;
+  padding: 0;
+}
+
+.img_avatar {
+  width: 32px;
+  height: 32px;
+  flex-grow: 0;
+}
+
+
+.name_avatar {
+  width: 45px;
+  height: 23px;
+  flex-grow: 0;
+  font-family: Prompt;
+  font-size: 15px;
+  font-weight: 600;
+  font-stretch: normal;
+  font-style: normal;
+  line-height: 1.5;
+  letter-spacing: normal;
+  text-align: left;
+  color: #888;
+}

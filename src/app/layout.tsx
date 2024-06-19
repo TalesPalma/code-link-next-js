@@ -1,6 +1,7 @@
 import type { Metadata } from "next";
 import './globals.css'
 import { Aside } from "@/components/Aside";
+import { CardPost } from "@/components/CardCode";
 
 export const metadata: Metadata = {
   title: "Code Link",
