@@ -14,12 +14,8 @@ interface AvatarProps {
 export const Avatar = ({ name, image }: AvatarProps) => {
   return (
     <li className={style.avatar_container}>
-      <ul className={style.name_avatar}>
-        {name}
-      </ul>
-      <ul className={style.img_avatar} >
-        <Image src={image} alt="Avatar image" width={300} height={300} />
-      </ul>
+      <Image src={image} alt="Avatar image" width={300} height={300} className={style.img_avatar} />
+      <span className={style.name_avatar}>{name}</span>
     </li>
   )
 }

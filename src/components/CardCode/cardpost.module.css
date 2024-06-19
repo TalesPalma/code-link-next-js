@@ -1,0 +1,94 @@
+.card_container {
+  width: 486px;
+  height: 431px;
+  flex-grow: 0;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+  align-items: stretch;
+  padding: 0;
+}
+
+.card_header {
+  height: 181px;
+  display: flex;
+  justify-content: center;
+  gap: 8px;
+  padding: 24px;
+  background-color: #888;
+}
+
+.banner {
+  border-radius: 20px;
+}
+
+.card_description {
+  height: 250px;
+  align-self: stretch;
+  flex-grow: 0;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  gap: 16px;
+  padding: 16px;
+  background-color: #171d1f;
+}
+
+.description_title {
+  height: 27px;
+  align-self: stretch;
+  flex-grow: 0;
+  font-family: Prompt;
+  font-size: 18px;
+  font-weight: 600;
+  font-stretch: normal;
+  font-style: normal;
+  line-height: 1.5;
+  letter-spacing: normal;
+  text-align: left;
+  color: #bcbcbc;
+}
+
+.description_body {
+  height: 69px;
+  align-self: stretch;
+  flex-grow: 0;
+  font-family: Prompt;
+  font-size: 15px;
+  font-weight: normal;
+  font-stretch: normal;
+  font-style: normal;
+  line-height: 1.5;
+  letter-spacing: normal;
+  text-align: left;
+  color: #bcbcbc;
+}
+
+.description_link {
+  width: 111px;
+  height: 27px;
+  margin: 8px 343px 0 0;
+  padding: 0 5px 0 0;
+  font-family: Prompt;
+  font-size: 18px;
+  font-weight: normal;
+  font-stretch: normal;
+  font-style: normal;
+  line-height: 1.5;
+  letter-spacing: normal;
+  text-align: left;
+  color: #81fe88;
+}
+
+
+
+.card_footer {
+  width: 70%;
+  display: flex;
+  flex-direction: row;
+  justify-content: end;
+  justify-items: end;
+  align-items: end;
+  padding: 0;
+}

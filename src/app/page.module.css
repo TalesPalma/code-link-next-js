@@ -1,0 +1,11 @@
+.page_container {
+  width: 996px;
+  height: 1531px;
+  flex-grow: 0;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+  align-items: center;
+  gap: 56px;
+  padding: 0;
+}

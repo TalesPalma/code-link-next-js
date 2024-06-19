@@ -1,5 +1,5 @@
 import { CardPost } from "@/components/CardCode";
-
+import style from './page.module.css'
 
 const post = {
   "id": 1,
@@ -18,7 +18,7 @@ const post = {
 
 export default function Home() {
   return (
-    <main>
+    <main className={style.page_container}>
       <CardPost post={post} />
     </main >
   );

@@ -1,13 +1,11 @@
 .avatar_container {
   width: 85px;
-  align-self: stretch;
-  flex-grow: 0;
   display: flex;
   flex-direction: row;
-  justify-content: flex-end;
-  align-items: center;
-  gap: 8px;
+  justify-content: end;
+  align-items: end;
   padding: 0;
+  gap: 8px;
 }
 
 .img_avatar {
@@ -20,7 +18,6 @@
 .name_avatar {
   width: 45px;
   height: 23px;
-  flex-grow: 0;
   font-family: Prompt;
   font-size: 15px;
   font-weight: 600;
