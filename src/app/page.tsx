@@ -1,25 +1,50 @@
 import { CardPost } from "@/components/CardCode";
 import style from './page.module.css'
 
-const post = {
-  "id": 1,
-  "cover": "https://raw.githubusercontent.com/viniciosneves/code-connect-assets/main/posts/introducao-ao-react.png",
-  "title": "Introdução ao React",
-  "slug": "introducao-ao-react",
-  "body": "Neste post, vamos explorar os conceitos básicos do React, uma biblioteca JavaScript para construir interfaces de usuário. Vamos cobrir componentes, JSX e estados.",
-  "markdown": "```javascript\nfunction HelloComponent() {\n  return <h1>Hello, world!</h1>;\n}\n```",
-  "author": {
-    "id": 101,
-    "name": "Ana Beatriz",
-    "username": "anabeatriz_dev",
-    "avatar": "https://raw.githubusercontent.com/viniciosneves/code-connect-assets/main/authors/anabeatriz_dev.png",
-  }
+
+
+export interface Author {
+  id: string,
+  name: string,
+  username: string,
+  avatar: string,
 }
 
-export default function Home() {
+
+export interface Post {
+  id: string,
+  cover: string,
+  title: string,
+  slug: string,
+  body: string,
+  markdow: string,
+  author: Author
+}
+
+
+
+
+
+
+async function get_all_post() {
+  const response = await fetch('http://localhost:3042/posts');
+
+  if (!response.ok) {
+    console.log("Ops ocorreu algum erro na get_all_post() !!!")
+  }
+  return response.json();
+}
+
+
+export default async function Home() {
+  const posts: Post[] = await get_all_post()
   return (
     <main className={style.page_container}>
-      <CardPost post={post} />
+
+      <div className={style.card_container}>
+        {posts.map((item: Post) => <CardPost key={item.id} post={item} />)}
+      </div>
+
     </main >
   );
 }

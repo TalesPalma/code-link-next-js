@@ -1,11 +1,16 @@
 .page_container {
-  width: 996px;
-  height: 1531px;
-  flex-grow: 0;
+  width: 100%;
+  height: 100%;
   display: flex;
   flex-direction: column;
-  justify-content: flex-start;
-  align-items: center;
-  gap: 56px;
   padding: 0;
+  margin: 20px;
+}
+
+
+.card_container {
+  gap: 56px;
+  flex-wrap: wrap;
+  display: flex;
+  justify-content: center;
 }

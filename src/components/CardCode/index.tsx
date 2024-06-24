@@ -1,11 +1,18 @@
 import Image from 'next/image'
 import style from './cardpost.module.css'
 import { Avatar } from '../Avatar'
+import { Post } from '@/app/page'
 
 
 
+interface CardPostProps {
+  post: Post
+}
 
-export const CardPost = ({ post }: any) => {
+
+
+export const CardPost: React.FC<CardPostProps> = ({ post }) => {
+  console.log(post)
   return (
     <article className={style.card_container}>
 
@@ -14,9 +21,9 @@ export const CardPost = ({ post }: any) => {
       </header>
 
       <section className={style.card_description}>
-        <span className={style.description_title}>Titulo do post em duas linhas</span>
-        <span className={style.description_body}>At vero eos et accusamus et iusto odio dignissimos ducimus qui blanditiis praesentium voluptatum deleniti atque corrupti quos dolores et quas molestias excepturi sint.</span>
-        <span className={style.description_link}>Ver detalhes</span>
+        <span className={style.description_title}>{post.title}</span>
+        <span className={style.description_body}>{post.body}</span>
+        <span className={style.description_url}>{post.slug}</span>
 
         <footer className={style.card_footer}>
           <Avatar name={post.author.username} image={post.author.avatar} />
