@@ -12,10 +12,8 @@ interface CardPostProps {
 
 
 export const CardPost: React.FC<CardPostProps> = ({ post }) => {
-  console.log(post)
   return (
     <article className={style.card_container}>
-
       <header className={style.card_header}>
         <figure><Image src={post.cover} alt='banner image' width={438} height={133} className={style.banner} /></figure>
       </header>

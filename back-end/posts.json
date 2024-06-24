@@ -167,6 +167,20 @@
         "username": "anabeatriz_dev",
         "avatar": "https://raw.githubusercontent.com/viniciosneves/code-connect-assets/main/authors/anabeatriz_dev.png"
       }
+    },
+    {
+      "id": 13,
+      "cover": "https://raw.githubusercontent.com/viniciosneves/code-connect-assets/main/posts/construindo-spa-com-vuejs.png",
+      "title": "Construindo Algo com o Tales",
+      "slug": "tales",
+      "body": "Este post oferece um tutorial detalhado sobre como construir uma Single Page Application (SPA) eficiente e interativa usando o framework Vue.js.",
+      "markdown": "```javascript\nnew Vue({\n  el: '#app',\n  data: {\n    message: 'Bem-vindo à sua SPA Vue.js!'\n  }\n});\n```",
+      "author": {
+        "id": 101,
+        "name": "Ana Beatriz",
+        "username": "anabeatriz_dev",
+        "avatar": "https://raw.githubusercontent.com/viniciosneves/code-connect-assets/main/authors/anabeatriz_dev.png"
+      }
     }
   ]
 }

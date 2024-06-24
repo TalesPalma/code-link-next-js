@@ -27,7 +27,7 @@ export interface Post {
 
 
 async function get_all_post() {
-  const response = await fetch('http://localhost:3042/posts');
+  const response = await fetch('http://localhost:3042/posts', { next: { revalidate: 3600 } });
 
   if (!response.ok) {
     console.log("Ops ocorreu algum erro na get_all_post() !!!")
@@ -38,6 +38,7 @@ async function get_all_post() {
 
 export default async function Home() {
   const posts: Post[] = await get_all_post()
+  console.log(posts)
   return (
     <main className={style.page_container}>
 
