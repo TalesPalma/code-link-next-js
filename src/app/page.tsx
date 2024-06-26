@@ -1,5 +1,5 @@
 import { CardPost } from "@/components/CardCode";
-import style from './page.module.css'
+import style from './page.module.css';
 import logger from "@/logger";
 import Link from "next/link";
 
@@ -19,7 +19,7 @@ export interface Post {
   title: string,
   slug: string,
   body: string,
-  markdow: string,
+  markdown: string,
   author: Author
 }
 
@@ -47,7 +47,6 @@ async function get_all_post(page: string) {
 export default async function Home({ searchParams }: { searchParams: { [key: string]: string } }) {
   const currentPage = searchParams?.page || "1"
   const posts: PostPages = await get_all_post(currentPage)
-  console.log(posts)
   return (
     <main className={style.page_container}>
 
