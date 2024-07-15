@@ -2,56 +2,57 @@ import { CardPost } from "@/components/CardCode";
 import style from './page.module.css';
 import logger from "@/logger";
 import Link from "next/link";
+import db from "../../prisma/db";
 
 export interface PostPages {
-  "first": number,
   "prev": number | null,
   "next": number,
-  "last": number,
-  "pages": number,
-  "items": number,
   data: Post[]
 }
 
 export interface Post {
-  id: string,
-  cover: string,
-  title: string,
-  slug: string,
-  body: string,
-  markdown: string,
-  author: Author
+  id: number;
+  cover: string;
+  title: string;
+  slug: string;
+  body: string;
+  markdown: string;
+  createdAt: Date;
+  updatedAt: Date;
+  authorId: number;
+  author?: User; // opcional se necessário}
 }
 
-export interface Author {
-  id: string,
-  name: string,
-  username: string,
-  avatar: string,
+export interface User {
+  id: number;
+  name: string;
+  username: string;
+  avatar: string;
 }
-
-
-
 
 async function get_all_post(page: string) {
-  const response = await fetch(`http://localhost:3042/posts?_page=${page}&_per_page=6`, { next: { revalidate: 3600 } });
-
-  if (!response.ok) {
-    logger.error("Ops ocorreu algum erro na get_all_post() !!!")
+  try {
+    const posts = await db.post.findMany({
+      include: {
+        author: true
+      },
+    });
+    return { data: posts, prev: null, next: null }
+  } catch (error) {
+    logger.error(`Erro ao buscas posts ${error}`);
+    return { data: [], prev: null, next: null }
   }
-  logger.info("Post obtidos com sucesso");
-  return response.json();
 }
 
 
 export default async function Home({ searchParams }: { searchParams: { [key: string]: string } }) {
   const currentPage = searchParams?.page || "1"
-  const posts: PostPages = await get_all_post(currentPage)
+  const posts = await get_all_post(currentPage)
   return (
     <main className={style.page_container}>
 
       <div className={style.card_container}>
-        {posts.data.map((item: Post) => <CardPost key={item.id} post={item} />)}
+        {posts.data.map((item: Post) => <CardPost post={item} />)}
       </div>
       <div className={style.navigates_container}>
         {posts.prev && <Link href={`/?page=${posts.prev}`} className={style.navigates_link}>Pagina anterior</Link>}
