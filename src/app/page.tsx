@@ -32,12 +32,24 @@ export interface User {
 
 async function get_all_post(page: string) {
   try {
+    const perPage = 6
+    const finalPage = Math.ceil((await db.post.count()) / perPage)
+    const pageN = Number(page);
+    const skip = (pageN - 1) * perPage
+    const prev = pageN > 1 ? pageN - 1 : null
+    const next = pageN < finalPage ? pageN + 1 : null
+
     const posts = await db.post.findMany({
+      take: perPage,
+      skip: skip,
+      orderBy: {
+        createdAt: "desc"
+      },
       include: {
         author: true,
       },
     });
-    return { data: posts, prev: null, next: null }
+    return { data: posts, prev: prev, next: next }
   } catch (error) {
     logger.error(`Erro ao buscas posts ${error}`);
     return { data: [], prev: null, next: null }
@@ -55,8 +67,8 @@ export default async function Home({ searchParams }: { searchParams: { [key: str
         {posts.data.map((item: Post) => <CardPost post={item} />)}
       </div>
       <div className={style.navigates_container}>
-        {posts.prev && <Link href={`/?page=${posts.prev}`} className={style.navigates_link}>Pagina anterior</Link>}
-        {posts.next && <Link href={`/?page=${posts.next}`} className={style.navigates_link}>Proxima pagina</Link>}
+        {posts.prev && <Link href={`/?page=${posts.prev}`} className={style.navigates_link}>ANTERIOR</Link>}
+        {posts.next && <Link href={`/?page=${posts.next}`} className={style.navigates_link}>PROXIMA</Link>}
       </div>
 
     </main >

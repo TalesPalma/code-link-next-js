@@ -14,8 +14,35 @@ export default function Error({
   }, [error])
 
   return (
-    <div>
-      <h2 style={{ color: 'red' }}>Something went wrong!</h2>
-    </div >
-  )
+    <div style={{
+      display: 'flex',
+      flexDirection: 'column',
+      alignItems: 'center',
+      justifyContent: 'center',
+      height: '80vh',
+      width: '100%',
+      backgroundColor: '#282c34',
+      color: 'white'
+    }}>
+      <h1 style={{
+        backgroundColor: 'red',
+        textAlign: 'center',
+        fontSize: '36px',
+        padding: '20px',
+        borderRadius: '8px',
+        margin: '10px 0'
+      }}>
+        Error
+      </h1>
+      <h2 style={{
+        backgroundColor: 'darkred',
+        textAlign: 'center',
+        fontSize: '24px',
+        padding: '20px',
+        borderRadius: '8px',
+        margin: '10px 0'
+      }}>
+        {error.message}
+      </h2>
+    </div>)
 }
