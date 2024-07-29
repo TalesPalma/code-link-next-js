@@ -19,3 +19,10 @@ img.Logo {
   flex-grow: 0;
   object-fit: contain;
 }
+
+.Logo:hover {
+  cursor: pointer;
+  transition: 0.3s;
+  transform: scale(1.1);
+  filter: drop-shadow(0px 0px 10px #DC6870);
+}

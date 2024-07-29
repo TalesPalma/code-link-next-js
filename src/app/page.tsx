@@ -3,6 +3,7 @@ import style from './page.module.css';
 import logger from "@/logger";
 import Link from "next/link";
 import db from "../../prisma/db";
+import { Prisma } from "@prisma/client";
 
 export interface PostPages {
   "prev": number | null,
@@ -30,10 +31,25 @@ export interface User {
   avatar: string;
 }
 
-async function get_all_post(page: string) {
+interface SearchParams {
+  page?: string
+  q?: string;
+}
+
+async function get_all_post(page: string, searchTerm?: string) {
   try {
+
+    const where: Prisma.PostWhereInput = {}
+    if (searchTerm) {
+      where.title = {
+        contains: searchTerm,
+        mode: 'insensitive',
+      };
+    }
+
     const perPage = 6
-    const finalPage = Math.ceil((await db.post.count()) / perPage)
+    const totalPage = await db.post.count({ where })
+    const finalPage = Math.ceil(totalPage / perPage)
     const pageN = Number(page);
     const skip = (pageN - 1) * perPage
     const prev = pageN > 1 ? pageN - 1 : null
@@ -42,6 +58,7 @@ async function get_all_post(page: string) {
     const posts = await db.post.findMany({
       take: perPage,
       skip: skip,
+      where,
       orderBy: {
         createdAt: "desc"
       },
@@ -57,9 +74,10 @@ async function get_all_post(page: string) {
 }
 
 
-export default async function Home({ searchParams }: { searchParams: { [key: string]: string } }) {
+export default async function Home({ searchParams }: { searchParams: SearchParams }) {
   const currentPage = searchParams?.page || "1"
-  const posts = await get_all_post(currentPage)
+  const searchTerm = searchParams?.q
+  const posts = await get_all_post(currentPage, searchTerm)
   return (
     <main className={style.page_container}>
 
@@ -67,8 +85,8 @@ export default async function Home({ searchParams }: { searchParams: { [key: str
         {posts.data.map((item: Post) => <CardPost post={item} />)}
       </div>
       <div className={style.navigates_container}>
-        {posts.prev && <Link href={`/?page=${posts.prev}`} className={style.navigates_link}>ANTERIOR</Link>}
-        {posts.next && <Link href={`/?page=${posts.next}`} className={style.navigates_link}>PROXIMA</Link>}
+        {posts.prev && <Link href={{ pathname: "/", query: { page: posts.prev } }} className={style.navigates_link}>ANTERIOR</Link>}
+        {posts.next && <Link href={{ pathname: "/", query: { page: posts.next } }} className={style.navigates_link}>PROXIMA</Link>}
       </div>
 
     </main >

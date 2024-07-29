@@ -4,25 +4,34 @@ import logger from "@/logger";
 import { remark } from "remark";
 import html from 'remark-html';
 import style from './page.module.css';
+import db from "../../../../prisma/db";
 
 async function getPostBySlug(slug: string): Promise<Post> {
-  const url = `http://localhost:3042/posts/?slug=${slug}`;
-  const response = await fetch(url)
+  try {
+    const post = await db.post.findFirst({
+      where: {
+        slug
+      },
+      include: {
+        author: true
+      }
+    });
 
-  if (!response.ok) {
-    logger.error("Erro com response do getPostsbySlug");
+    if (!post) {
+      logger.error('Post not found');
+      throw new Error('Post not found');
+    }
+
+    const processedContent = await remark()
+      .use(html)
+      .process(post.markdown);
+    post.markdown = processedContent.toString();
+
+    return post
+  } catch (e: Error | any) {
+    logger.error("Failed to get post" + e.message);
+    throw new Error(e.message);
   }
-
-  logger.info("Post obtidos com sucesso");
-
-  const post: Post[] = await response.json();
-
-  const processedContent = await remark()
-    .use(html)
-    .process(post[0].markdown);
-  post[0].markdown = processedContent.toString();
-
-  return post[0]
 }
 
 const PagePost = async ({ params }: any) => {
