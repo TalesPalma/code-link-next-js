@@ -239,3 +239,8 @@
 {"level":"error","message":"Erro ao buscas posts TypeError: Cannot read properties of undefined (reading 'q')","service":"user-service"}
 {"level":"error","message":"Erro ao buscas posts TypeError: Cannot read properties of undefined (reading 'q')","service":"user-service"}
 {"level":"error","message":"Erro ao buscas posts TypeError: Cannot read properties of undefined (reading 'q')","service":"user-service"}
+{"level":"error","message":"Erro ao buscas posts PrismaClientKnownRequestError: \nInvalid `prisma.post.count()` invocation:\n\n\nThe table `public.Post` does not exist in the current database.","service":"user-service"}
+{"level":"error","message":"Erro ao buscas posts PrismaClientKnownRequestError: \nInvalid `prisma.post.count()` invocation:\n\n\nThe table `public.Post` does not exist in the current database.","service":"user-service"}
+{"level":"error","message":"Erro ao buscas posts PrismaClientKnownRequestError: \nInvalid `prisma.post.count()` invocation:\n\n\nThe table `public.Post` does not exist in the current database.","service":"user-service"}
+{"level":"error","message":"Erro ao buscas posts PrismaClientKnownRequestError: \nInvalid `prisma.post.count()` invocation:\n\n\nThe table `public.Post` does not exist in the current database.","service":"user-service"}
+{"level":"error","message":"Erro ao buscas posts PrismaClientKnownRequestError: \nInvalid `prisma.post.count()` invocation:\n\n\nThe table `public.Post` does not exist in the current database.","service":"user-service"}
