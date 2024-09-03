@@ -2,37 +2,49 @@ import Image from 'next/image'
 import style from './cardpost.module.css'
 import { Avatar } from '../Avatar'
 import { Post } from '@/app/page'
-import Link from 'next/link'
-
 
 
 interface CardPostProps {
-  post: Post
+  post: Post;
 }
 
 
 
 export const CardPost: React.FC<CardPostProps> = ({ post }) => {
+
+  const { title, body, author, cover } = post
+
   return (
-    <Link href={`/posts/${post.slug}`} className={style.link_post}>
-      <article className={style.card_container}>
-        <header className={style.card_header}>
-          <figure><Image src={post.cover} alt='banner image' width={438} height={133} className={style.banner} /></figure>
-        </header>
+    <article className={style.card_container}>
+      <header className={style.card_header}>
+        <figure><Image src={cover} alt='banner image' width={438} height={133} className={style.banner} /></figure>
+      </header>
 
-        <section className={style.card_description}>
-          <span className={style.description_title}>{post.title}</span>
-          <span className={style.description_body}>{post.body}</span>
+      <section className={style.card_description}>
+        <span className={style.description_title}>{title}</span>
+        <span className={style.description_body}>{body}</span>
 
-          { /* <span className={style.description_url}>{post.slug}</span> */}
+        { /* <span className={style.description_url}>{post.slug}</span> */}
 
-          <footer className={style.card_footer}>
-            <Avatar name={post.author.username} image={post.author?.avatar} />
-          </footer>
+        <footer className={style.card_footer}>
+          <Avatar name={author.username} image={author.avatar} />
+        </footer>
+        <div className={style.containerFeedback}>
 
-        </section>
+          <span className={style.feedback} style={{ color: 'green' }}>
+            likes
+          </span>
 
-      </article>
-    </Link>
+          <span className={style.feedback} style={{ color: '#fff' }}>
+            comments
+          </span>
+
+          <span className={style.feedback} style={{ color: 'red' }}>
+            deslikes
+          </span>
+
+        </div>
+      </section>
+    </article>
   )
 }

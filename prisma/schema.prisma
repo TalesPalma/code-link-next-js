@@ -35,6 +35,7 @@ model Post {
   authorId  Int
   Comment   Comment[]
   likes     Int       @default(0)
+  unlikes   Int       @default(0)
 }
 
 model Comment {

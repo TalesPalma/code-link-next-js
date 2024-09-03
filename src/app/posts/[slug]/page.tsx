@@ -1,3 +1,4 @@
+
 import { Post } from "@/app/page";
 import { CardPost } from "@/components/CardCode";
 import logger from "@/logger";
@@ -40,6 +41,10 @@ const PagePost = async ({ params }: any) => {
   return (
     <div className={style.container}>
       <CardPost post={post} key={0} />
+      <div className={style.containerButtons}>
+        <button className={style.buttonChildren}>Like</button>
+        <button className={style.buttonChildren}>Deslike</button>
+      </div>
       <div className={style.code} dangerouslySetInnerHTML={{ __html: post.markdown }} />
     </div>
   )

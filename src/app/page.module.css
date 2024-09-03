@@ -36,3 +36,8 @@
   text-align: center;
   color: #bfffc3;
 }
+
+.link_post {
+  text-decoration: none;
+  cursor: pointer;
+}

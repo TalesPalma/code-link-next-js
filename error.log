@@ -38,3 +38,20 @@
 {"level":"error","message":"Erro ao buscas posts PrismaClientKnownRequestError: \nInvalid `prisma.post.count()` invocation:\n\n\nThe table `public.Post` does not exist in the current database.","service":"user-service"}
 {"level":"error","message":"Erro ao buscas posts PrismaClientKnownRequestError: \nInvalid `prisma.post.count()` invocation:\n\n\nThe table `public.Post` does not exist in the current database.","service":"user-service"}
 {"level":"error","message":"Erro ao buscas posts PrismaClientKnownRequestError: \nInvalid `prisma.post.count()` invocation:\n\n\nThe table `public.Post` does not exist in the current database.","service":"user-service"}
+{"level":"error","message":"Post not found","service":"user-service"}
+{"level":"error","message":"Failed to get postPost not found","service":"user-service"}
+{"level":"error","message":"Post not found","service":"user-service"}
+{"level":"error","message":"Failed to get postPost not found","service":"user-service"}
+{"level":"error","message":"Post not found","service":"user-service"}
+{"level":"error","message":"Failed to get postPost not found","service":"user-service"}
+{"level":"error","message":"Post not found","service":"user-service"}
+{"level":"error","message":"Failed to get postPost not found","service":"user-service"}
+{"level":"error","message":"Failed to get post\nInvalid `prisma.post.findFirst()` invocation:\n\n\nToo many database connections opened: FATAL: sorry, too many clients already","service":"user-service"}
+{"level":"error","message":"Failed to get post\nInvalid `prisma.post.findFirst()` invocation:\n\n\nToo many database connections opened: FATAL: sorry, too many clients already","service":"user-service"}
+{"level":"error","message":"Failed to get post\nInvalid `prisma.post.findFirst()` invocation:\n\n\nToo many database connections opened: FATAL: sorry, too many clients already","service":"user-service"}
+{"level":"error","message":"Failed to get post\nInvalid `prisma.post.findFirst()` invocation:\n\n\nToo many database connections opened: FATAL: sorry, too many clients already","service":"user-service"}
+{"level":"error","message":"Erro ao buscas posts PrismaClientInitializationError: \nInvalid `prisma.post.count()` invocation:\n\n\nToo many database connections opened: FATAL: sorry, too many clients already","service":"user-service"}
+{"level":"error","message":"Erro ao buscas posts PrismaClientInitializationError: \nInvalid `prisma.post.count()` invocation:\n\n\nToo many database connections opened: FATAL: sorry, too many clients already","service":"user-service"}
+{"level":"error","message":"Erro ao buscas posts PrismaClientInitializationError: \nInvalid `prisma.post.count()` invocation:\n\n\nToo many database connections opened: FATAL: sorry, too many clients already","service":"user-service"}
+{"level":"error","message":"Erro ao buscas posts PrismaClientInitializationError: \nInvalid `prisma.post.count()` invocation:\n\n\nToo many database connections opened: FATAL: sorry, too many clients already","service":"user-service"}
+{"level":"error","message":"Erro ao buscas posts PrismaClientInitializationError: \nInvalid `prisma.post.count()` invocation:\n\n\nToo many database connections opened: FATAL: sorry, too many clients already","service":"user-service"}

@@ -21,7 +21,7 @@ export interface Post {
   createdAt: Date;
   updatedAt: Date;
   authorId: number;
-  author?: User; // opcional se necessário}
+  author: User; // opcional se necessário}
 }
 
 export interface User {
@@ -82,7 +82,11 @@ export default async function Home({ searchParams }: { searchParams: SearchParam
     <main className={style.page_container}>
 
       <div className={style.card_container}>
-        {posts.data.map((item: Post) => <CardPost post={item} />)}
+        {posts.data.map((item: Post) => {
+          return (<Link href={`/posts/${item.slug}`} key={item.id} className={style.link_post}>
+            <CardPost post={item} />
+          </Link>)
+        })}
       </div>
       <div className={style.navigates_container}>
         {posts.prev && <Link href={{ pathname: "/", query: { page: posts.prev } }} className={style.navigates_link}>ANTERIOR</Link>}
